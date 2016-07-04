@@ -7,10 +7,20 @@ endif
 
 "insert here your Neobundle plugins"
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle "Valloric/YouCompleteMe"
+NeoBundle "majutsushi/tagbar"
 call neobundle#end()
 filetype plugin indent on
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+let g:airline_powerline_fonts = 0
+let g:airline_theme = 'molokai'
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 set backspace=indent,eol,start
 let g:jedi#auto_initialization = 0
 let g:jedi#auto_vim_configuration = 0
