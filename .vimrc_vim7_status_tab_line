@@ -1,0 +1,108 @@
+
+set splitbelow
+
+set number
+colorscheme molokai
+syntax on
+
+set laststatus=2
+hi StatusLine ctermfg =blue
+
+let g:currentmode={
+        \ '__' : '------',
+        \ 'n'  : 'NORMAL',
+        \ 'i'  : 'INSERT',
+        \ 'R'  : 'REPLACE',
+        \ 'v'  : 'VISUAL',
+        \ 'V'  : 'V-LINE',
+        \ 'c'  : 'COMMAND',
+        \ '' : 'V-BLOCK',
+        \ 's'  : 'SELECT',
+        \ 'S'  : 'S-LINE',
+        \ '' : 'S-BLOCK',
+        \ 't'  : 'TERMINAL',
+    \}
+function! ChangeStatuslineColor()
+  if (mode() =~# '\v(n|no)')
+    exe 'hi! StatusLine ctermfg=blue'
+  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
+    exe 'hi! StatusLine ctermfg=yellow'
+  elseif (mode() ==# 'i')
+    exe 'hi! StatusLine ctermfg=red'
+  else
+    exe 'hi! StatusLine ctermfg=006'
+  endif
+
+  return ''
+endfunction
+
+set laststatus=2
+set statusline=
+set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
+"set statusline+=%1*\ [%n]                                " buffernr
+"set statusline+=%8*\ %{GitInfo()}                        " Git Branch name
+set statusline+=%2*\ %<%F\ \ %m\ %w\        " File+path
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}             " Syntastic errors
+set statusline+=%*
+set statusline+=%1*\ %=                                  " Space
+set statusline+=%1*\ %y\                                 " FileType
+set statusline+=%2*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding & Fileformat
+"set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
+set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber/total (%)
+
+hi User1 ctermfg=007 guifg=#eea040
+hi User2 ctermfg=blue
+hi User3 ctermfg=008
+hi User4 ctermfg=008
+hi User5 ctermfg=008
+hi User7 ctermfg=008
+hi User8 ctermfg=008
+hi User9 ctermfg=007
+
+set showtabline=2
+"hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+"hi TabLine ctermfg=Blue ctermbg=Yellow
+
+
+
+
+"tabline-----
+
+set showtabline=2
+
+"hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+nnoremap <S-Tab> gT
+nnoremap <Tab><Tab> gt
+for i in range(1, 9)
+    execute 'nnoremap <Tab>' . i . ' ' . i . 'gt'
+endfor
+
+function! s:SID_PREFIX()
+        return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+function! s:my_tabline()  "{{{
+        let s = ''
+        for i in range(1, tabpagenr('$'))
+                let bufnrs = tabpagebuflist(i)
+                let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+                let no = i  " display 0-origin tabpagenr.
+                let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+                let title = fnamemodify(bufname(bufnr), ':t')
+                "let title = title
+                let s .= '%'.i.'T'
+                let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+                let s .= '['.no.']'. title
+                let s .= mod
+               " let s .= '|'
+               " let s .= '%#TabLineFill# '
+        endfor
+        let s .= '%#TabLineFill#%T%=%#TabLine#'
+        return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+set showtabline=2
+
+nnoremap <silent><F1> :tabnew \|  :e.<CR>
