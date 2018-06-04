@@ -6,6 +6,7 @@ First
 * [to H4](#VimH4)
 
 # List
+## <i class="fa fa-cube" style="font-size:1em;"></i> VimH1
 # VimH1
 - h1
 - h1
@@ -32,6 +33,7 @@ First
 - h1
 - h1
 - h1
+## <i class="fa fa-cube" style="font-size:1em;"></i> VimH2
 ## VimH2
 - h2
 - h2
@@ -68,6 +70,7 @@ First
 - h2
 - h2
 - h2
+## <i class="fa fa-cube" style="font-size:1em;"></i> VimH3
 ### VimH3
 #### VimH4
 ##### VimH5
@@ -111,9 +114,8 @@ First
 [return to menu](#menu)
 
 <details><summary>サンプルコード</summary><div>
-
-\```rb
+```rb
 puts 'Hello, World'
-\```
+```
 </div></details>
 
