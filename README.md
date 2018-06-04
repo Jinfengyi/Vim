@@ -1,9 +1,9 @@
 First
 ## <i class="fa fa-cube" style="font-size:1em;"></i> menu
-[to H1] (#Vim H1)
-[to H2] (##Vim H2)
-[to H3] (###Vim H3)
-[to H4] (####Vim H4)
+* [to H1](#Vim H1)
+* [to H2](##Vim H2)
+* [to H3](###Vim H3)
+* [to H4](####Vim H4)
 
 # List
 # Vim H1
