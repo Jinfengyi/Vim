@@ -114,8 +114,8 @@ First
 [return to menu](#menu)
 
 <details><summary>サンプルコード</summary><div>
-```rb
+`rb
 puts 'Hello, World'
-```
+`
 </div></details>
 
