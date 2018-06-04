@@ -1,11 +1,11 @@
 First
 ## <i class="fa fa-cube" style="font-size:1em;"></i> menu
-# List
-* [to H1] (#Vim H1)
-* [to H2] (#H2)
-* [to H3] (#H3)
-* [to H4] (#H4)
+[to H1] (#Vim H1)
+[to H2] (#H2)
+[to H3] (#H3)
+[to H4] (#H4)
 
+# List
 # Vim H1
 - h1
 - h1
