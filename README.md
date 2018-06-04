@@ -1,12 +1,10 @@
 First
-## <i class="fa fa-cube" style="font-size:1em;"></i> menu
 * [to H1](#VimH1)
 * [to H2](#VimH2)
 * [to H3](#VimH3)
 * [to H4](#VimH4)
 
 # List
-## <i class="fa fa-cube" style="font-size:1em;"></i> VimH1
 # VimH1
 - h1
 - h1
@@ -111,11 +109,10 @@ First
   - C2
     - C3
 
-[return to menu](#menu)
 
 <details><summary>サンプルコード</summary><div>
-`rb
-puts 'Hello, World'
-`
+ `rb
+ puts 'Hello, World'
+ `
 </div></details>
 
