@@ -169,7 +169,7 @@ if has("persistent_undo")
 endif
 
 ""svn
-let g:svnj_trunk_url = "svn://pces0003.k-micro.com/mercury3/chip/trunk"
+"let g:svnj_trunk_url = "svn://trunk"
 
 "vim grep cursor word
 command! -nargs=0 VG exec 'vimgrep 'expand('<cword>').' ** | cw'
